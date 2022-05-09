@@ -1,0 +1,74 @@
+@import '../_mixin';
+
+.header {
+	header {
+		position: relative;
+		height: 100vh;
+		overflow: hidden;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+		}
+
+		.text {
+			position: absolute;
+			top: 13rem;
+			padding: 2rem;
+			color: $lightest-grey;
+			max-width: 1280px;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			width: 100%;
+			text-align: center;
+
+			h1 {
+				font-size: 4rem;
+				font-weight: 600;
+				width: 70%;
+				line-height: 1.2;
+				color: $primary;
+				margin: 0 auto 3rem;
+				text-transform: capitalize;
+			}
+
+			h5 {
+				margin-bottom: 2rem;
+				font-weight: 600;
+				width: 60%;
+				font-weight: 400;
+				margin: 0 auto;
+				color: $white;
+			}
+
+			@include btnGroup;
+
+			.btnGroup {
+				@include primaryBtn;
+
+				margin-top: 4rem;
+
+				.primaryBtn {
+					@include btnEffect;
+
+					padding: 1.25rem 2.5rem;
+
+					
+					&:hover {
+						svg {
+							width: 3rem;
+							height: 3rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,84 @@
+@import '../_mixin';
+
+.footer {
+	padding: 7rem 2rem 3rem;
+	background-color: $dark-grey;
+	
+	@include container;
+
+	.container {
+		.upperLayer {
+			display: flex;
+			gap: 5rem;
+			justify-content: space-between;
+			padding-bottom: 5rem;
+			margin-bottom: 3rem;
+			border-bottom: 1px solid #444;
+
+			> div {
+				&:nth-child(1) {
+					display: flex;
+					flex-direction: column;
+					gap: 3rem;
+
+					.logo {
+						display: flex;
+
+						&:link, &:visited {
+							display: flex;
+							align-items: center;
+							gap: 1rem;
+
+							figure {
+								display: flex;
+								transition: all 0.3s ease-in-out 0s;
+								width: 150px;
+							}
+
+							span {
+								font-size: 2rem;
+								transition: all 0.3s ease-in-out 0s;
+								font-family: $titleFont;
+								line-height: 1.2;
+								color: $white;
+								width: 18rem;
+							}
+						}
+					}
+
+					@include primaryBtn;
+
+					.primaryBtn {
+						width: 15rem;
+					}
+				}
+
+				&:nth-child(2), &:nth-child(3) {
+					h5 {
+						color: $lightest-grey;
+						margin-bottom: 1.5rem;
+						font-weight: 400;
+					}
+
+					h6 {
+						color: $lighter-grey;
+					}
+
+					ul {
+						color: $light-grey;
+						display: flex;
+						flex-direction: column;
+						gap: 1rem;
+						text-transform: capitalize;
+					}
+				}
+			}
+		}
+
+		.lowerLayer {
+			color: $grey;
+			text-align: center;
+		}
+	}
+}
+

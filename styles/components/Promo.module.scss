@@ -1,0 +1,76 @@
+@import '../_mixin';
+
+.promo {
+	padding: 5rem 2rem;
+	background-color: $primary;
+
+	@include container;
+
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+
+		> div {
+			h3 {
+				line-height: 1.2;
+				color: $white;
+			}
+
+			@include btnGroup;
+
+			.btnGroup {
+				@include primaryBtnInvert;
+
+				justify-content: flex-start;
+				margin-top: 2rem;
+
+				.primaryBtnInvert {
+					@include btnEffect;
+
+					svg {
+						path {
+					      	fill: $primary;
+					    }
+					}
+				}
+			}
+		}
+
+		> ul {
+			display: flex;
+			gap: 1.5rem;
+			justify-content: space-between;
+			align-items: center;
+			flex: 0 0 65%;
+
+			li {
+				border-radius: 1rem;
+				background-color: $white;
+				padding: 1rem 1.5rem 1.75rem;
+				text-align: center;
+				flex-grow: 1;
+    			flex-basis: 0;
+    			box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+
+				h1 {
+					color: $primary;
+					padding-bottom: 0.25rem;
+					margin-bottom: 1rem;
+					border-bottom: 3px dashed rgba(0,0,0,0.1);
+				}
+
+				h6 {
+					text-transform: uppercase;
+					color: $dark-grey;
+				}
+
+				p {
+					color: $grey;
+					font-size: 0.875rem;
+					margin-top: 0.5rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto+Slab:wght@400;600&display=swap');
+
+$titleFont: 'Roboto Slab', serif;
+$font: 'Montserrat', sans-serif;
+
+$black: #000;
+$darkest-grey: #111;
+$darker-grey: #222;
+$dark-grey: #333;
+$grey: #666;
+$light-grey: #999;
+$lighter-grey: #CCC;
+$lightest-grey: #EEE;
+$white: #FFF;
+
+$primary: #ff9800;
+$primaryDark: #ffc107;
+$background: #f6f5f2;
+$error: #e84118;
+$success: #009432;
+
+
+@mixin btn {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5rem;
+  font-family: $font;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out 0s;
+  text-transform: capitalize;
+}
+
+
+@mixin primaryBtn {
+  .primaryBtn {
+    @include btn;
+
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+  }
+}
+
+
+@mixin primaryBtnInvert {
+  .primaryBtnInvert {
+    @include btn;
+
+    background-color: $white;
+    border-color: $white;
+    color: $primary;
+  }
+}
+
+
+@mixin secondaryBtn {
+  .secondaryBtn {
+    @include btn;
+
+    border-color: $primary;
+    color: $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
+
+
+@mixin blackBtn {
+  .blackBtn {
+    @include btn;
+
+    background-color: $darker-grey;
+    border-color: $darker-grey;
+    color: $lightest-grey;
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+      border-color: $black;
+      top: -0.35rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+  }
+}
+
+
+@mixin btnGroup {
+  .btnGroup {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+
+@mixin btnEffect {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  font-weight: 600;
+
+  svg {
+    width: 0;
+    position: absolute;
+    right: 2.5rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all 0.3s ease-in-out 0s;
+
+    path {
+      fill: $white;
+    }
+  }
+
+  &:hover {
+    padding-right: 4rem;
+
+    svg {
+      width: 2.5rem;
+      right: 0.5rem;
+    }
+  }
+}
+
+
+@mixin buttonHolder {
+  .buttonHolder {
+    @include blackBtn;
+    
+    text-align: center;
+    margin-top: 7rem;
+  }
+}
+
+
+@mixin titleHelper {
+  h6 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: $primary;
+    position: relative;
+    letter-spacing: 1px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display: inline-flex;
+    font-size: 0.875rem;
+    font-family: $font;
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 2rem;
+      height: 1px;
+      background-color: $primary;
+    }
+
+    &:after {
+      left: inherit;
+      right: 0;
+    }
+  }
+}
+
+
+@mixin input {
+  input[type=text], input[type=email], input[type=number], select, textarea {
+    border: 1px solid $grey;
+    font-family: $font;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 1rem;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+
+@mixin container {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+
+@mixin pageTitle {
+  h4 {
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 3rem;
+
+    &:before, &:after {
+      content: '';
+      bottom: -0.75rem;
+      height: 5px;
+      width: 100px;
+      position: absolute;
+      left: 20px;
+      background-color: $primaryDark;
+    }
+
+    &:after {
+      left: 50px;
+      background-color: $white;
+      width: 5px;
+    }
+  }
+}
+
+
+@mixin primaryCard {
+  .primaryCard {
+    position: relative;
+
+    figure {
+      display: flex;
+      position: relative;
+      width: 525px;
+      height: 700px;
+      border-radius: 20px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+      img {
+        border-radius: 20px;
+      }
+    }
+
+    > div {
+      position: absolute;
+      top: 1.5rem;
+      left: 2.5rem;
+      width: 650px;
+      background-color: $white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+
+      h5 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  @media all and (max-width: 1280px) {
+    .primaryCard {
+      figure {
+        width: 460px;
+        height: 613px;
+      }
+    }
+  }
+
+  @media all and (max-width: 1024px) {
+    .primaryCard {
+      > div {
+        width: 700px;
+      }
+    }
+  }
+
+  @media all and (max-width: 800px) {
+    .primaryCard {
+      > div {
+        width: 600px;
+      }
+    }
+  }
+
+  @media all and (max-width: 600px) {
+    .primaryCard {
+      > div {
+        width: 510px;
+        top: 1.5rem;
+          left: 1.5rem;
+      }
+    }
+  }
+
+  @media all and (max-width: 430px) {
+    .primaryCard {
+      figure {
+        margin-top: 8rem;
+        width: 310px;
+        height: 413px;
+      }
+
+      > div {
+        width: 330px;
+        top: 0;
+
+        h5 {
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 375px) {
+    .primaryCard {
+      > div {
+        width: 310px;
+        top: -1rem;
+      }
+    }
+  }
+}
+
+
+@mixin eventsBlock {
+  .eventsBlock {
+    margin-left: 2rem;
+    width: 400px;
+
+    > h4 {
+      margin-top: 1.5rem;
+    }
+
+    > ul {
+      list-style-type: none;
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+
+      li {
+        display: flex;
+        flex-grow: 1;
+        
+        a {
+          &:link, &:visited {
+            border-radius: 7px;
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            background-color: $white;
+            cursor: pointer;
+            border: 1px solid $white;
+            transition: all 0.3s ease-in-out 0s;
+          }
+
+          &:hover, &:active, &:focus {
+            border-color: $darker-grey;
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 1024px) {
+    .eventsBlock {
+      width: 100%;
+      margin-left: 0;
+
+      > h4 {
+        margin-top: 2.5rem;
+      }
+
+      > ul {
+        li {
+          flex-grow: 0;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 600px) {
+    .eventsBlock {
+      > h4 {
+        margin-top: 3rem;
+      }
+    }
+  }
+
+  @media all and (max-width: 430px) {
+    .eventsBlock {
+      > ul {
+        li {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
+
+
+@mixin memberCard {
+  .eachSlide {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+
+    figure {
+      display: inline-flex;
+
+      img {
+        border-radius: 15px;
+      }
+    }
+
+    h6 {
+      text-transform: capitalize;
+      color: $dark-grey;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      &:nth-of-type(1) {
+        color: $grey;
+      }
+
+      &:nth-of-type(2) {
+        color: $light-grey;
+      }
+    }
+  }
+}
+
+
+@mixin responseText {
+  .messageBox {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+    border-radius: 3px;
+    color: $white;
+    margin-top: 0.5rem;
+    display: inline-flex;
+
+    &.success {
+      background-color: $success;
+    }
+
+    &.error {
+      background-color: $error;
+    }
+  }
+}
+
+
+@mixin innerPageHeader {
+  header {
+    position: relative;
+
+    figure {
+      position: relative;
+      height: 50vh;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%, rgba(0,0,0,0) 100%);
+      }
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 90%;
+      text-align: center;
+
+      h1 {
+        color: $primary;
+        text-transform: capitalize;
+        position: relative;
+        font-weight: 500;
+        word-break: break-word;
+        line-height: 1.2;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          bottom: -10px;
+          height: 6px;
+          width: 90px;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+}

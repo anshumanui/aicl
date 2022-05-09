@@ -1,0 +1,83 @@
+@import '../_mixin';
+
+.services {
+	padding: 7rem 2rem 11rem;
+	background-color: $lightest-grey;
+
+	@include container;
+
+	.container {
+		@include titleHelper;
+
+		ul {
+			display: flex;
+			gap: 3rem;
+			margin-top: 3rem;
+
+			li {
+				flex-basis: 0;
+				flex-grow: 1;
+				position: relative;
+				top: 0;
+				display: flex;
+				transition: all 0.3s ease-in-out 0s;
+
+				a {
+					&:link, &:visited {
+						background-color: $white;
+						border-radius: 10px;
+						box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+						padding: 2rem;					
+
+						div {
+							&:not(.btnGroup) {
+								border-radius: 50%;
+								width: 6rem;
+								height: 6rem;
+								padding: 1rem;
+								background-color: $primary;
+								display: flex;
+								justify-content: center;
+								align-items: center;
+
+								svg {
+									width: 80%;
+									height: 80%;
+
+									path {
+										fill: $white;
+									}
+								}
+							}
+						}
+
+						h5 {
+							color: $dark-grey;
+							line-height: 1.4;
+							margin-top: 1.75rem;
+							margin-bottom: 1.25rem;
+							text-transform: capitalize;
+						}
+
+						p {
+							color: $dark-grey;
+						}
+					}
+				}
+
+				&:nth-child(even) {
+					top: 3.5rem;
+				}
+
+				&:hover {
+					top: -0.5rem;
+
+					&:nth-child(even) {
+						top: 3rem;
+					}
+				}
+			}
+		}
+	}
+
+}

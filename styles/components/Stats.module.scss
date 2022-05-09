@@ -1,0 +1,83 @@
+@import '../_mixin';
+
+.stats {
+	padding: 7rem 2rem;
+	background-image: url('/images/landing/stats.webp');
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: bottom center;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.6);
+	}
+
+	@include container;
+
+	.container {
+		position: relative;
+		text-align: center;
+
+		@include titleHelper;
+
+		h2 {
+			color: $lightest-grey;;
+		}
+
+		p {
+			color: $lighter-grey;	
+		}
+
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 5rem;
+			gap: 10rem;
+
+			li {
+				svg {
+					width: 4rem;
+					height: 4rem;
+
+					path {
+						fill: $primary;
+					}
+				}
+
+				h1 {
+					color: $lightest-grey;;
+				}
+
+				h5 {
+					color: $lightest-grey;
+					font-family: $font;
+					text-transform: capitalize;
+					font-weight: 400;
+					font-size: 1.25rem;
+					line-height: 1.4;
+					margin-top: 0.5rem;
+				}
+			}
+		}
+
+		@include btnGroup;
+
+		.btnGroup {
+			@include primaryBtn;
+
+			margin-top: 6rem;
+
+			.primaryBtn {
+				@include btnEffect;
+			}
+		}
+	}
+
+}

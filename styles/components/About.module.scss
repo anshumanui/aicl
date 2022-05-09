@@ -1,0 +1,72 @@
+@import '../_mixin';
+
+.about {
+	padding: 7rem 2rem;
+
+	@include container;
+
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		justify-content: space-between;
+
+		> * {
+			flex-grow: 1;
+    		flex-basis: 0;
+		}
+
+		> div {
+			@include titleHelper;
+
+			h5 {
+				margin-top: 1.25rem;
+				font-weight: 600;
+				color: $dark-grey;
+			}
+
+			p {
+				margin-top: 1rem;
+			}
+
+			@include btnGroup;
+
+			.btnGroup {
+				@include primaryBtn;
+
+				justify-content: flex-start;
+
+				.primaryBtn {
+					@include btnEffect;
+				}
+			}
+		}
+
+		figure {
+			position: relative;
+			display: flex;
+			flex-direction: row-reverse;
+
+			img {
+				border-radius: 50%;
+			}
+
+			h5 {
+				text-transform: capitalize;
+				border-radius: 50%;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $primary;
+				color: $white;
+				width: 9rem;
+				height: 9rem;
+				text-align: center;
+				line-height: 1.2;
+				position: absolute;
+				top: 0;
+				right: -1rem;
+			}
+		}
+	}
+}

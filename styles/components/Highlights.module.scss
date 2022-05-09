@@ -1,0 +1,75 @@
+@import '../_mixin';
+
+.highlights {
+	background-color: $white;
+	padding-left: 2rem;
+
+	@include container;
+
+	.container {
+		display: flex;
+
+		> * {
+			flex-basis: 0;
+			flex-grow: 1;
+		}
+
+		.halfContainer {
+			padding: 9rem 0;
+			padding-right: 2rem;
+			display: flex;
+			justify-content: flex-end;
+
+			.wrapper {
+				@include titleHelper;
+
+				p {
+					margin-top: 1rem;
+				}
+
+				@include btnGroup;
+
+				.btnGroup {
+					@include primaryBtn;
+
+					justify-content: flex-start;
+
+					.primaryBtn {
+						@include btnEffect;
+					}
+				}
+			}	
+		}
+
+		.sliderContainer {
+			position: relative;			
+
+			.sliderWrapper {
+				width: 48.1vw;
+				position: absolute;
+				overflow: scroll;
+				height: 100%;
+				background-color: $lightest-grey;
+
+				.enclosedCover {
+					position: sticky;
+					height: 100%;
+					width: 10rem;
+					left: 0;
+					background-color: $white;
+				}
+
+				ul {					
+					display: flex;
+					gap: 50px;
+					justify-content: center;
+					align-items: center;
+					height: 100%;
+					width: 2550px;
+					position: absolute;
+					top: 0;
+				}
+			}
+		}
+	}
+}

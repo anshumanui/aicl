@@ -1,0 +1,302 @@
+@import '../_mixin';
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 11;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0 2rem;
+	transition: all 0.3s ease-in-out 0s;
+	gap: 2rem;
+
+	> * {
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+
+	.logo {
+		display: flex;
+
+		&:link, &:visited {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+			figure {
+				display: flex;
+				transition: all 0.3s ease-in-out 0s;
+				width: 150px;
+			}
+
+			span {
+				font-size: 2rem;
+				width: 20rem;
+				transition: all 0.3s ease-in-out 0s;
+				font-family: $titleFont;
+				line-height: 1.2;
+				color: $white;
+				display: none;
+			}
+		}
+	}
+
+	.normalMenu {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		justify-content: flex-end;
+
+		> li {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: relative;
+			padding: 0.5rem 1.5rem;
+			text-transform: capitalize;
+			color: $white;
+			font-family: $font;
+			border-radius: 2rem;
+			cursor: pointer;
+			gap: 0.5rem;
+			transition: all 0.3s ease-in-out 0s;
+
+			svg {
+				width: 0.75rem;
+				height: 0.75rem;
+
+				path {
+					fill: rgba(255,255,255,0.75);
+					transition: all 0.3s ease-in-out 0s;
+				}
+			}
+
+			.dropdown {
+				background-color: $darker-grey;
+				position: absolute;
+				top: 4rem;
+				right: 0;
+				width: 15rem;
+				height: 0;
+				color: $white;
+				border-radius: 1rem;
+				transition: all 0.3s ease-in-out 0s;
+				overflow: hidden;
+
+				li {
+					border-bottom: 1px solid $dark-grey;
+					padding: 1rem 1.5rem;
+					text-transform: capitalize;
+
+					&:last-child {
+						border-bottom: 0;
+					}
+
+					&:hover {
+						color: $primary;
+					}
+				}
+			}
+
+			&.active {
+				background-color: $primary;
+				color: $white;
+			}
+
+			&:hover {
+				background-color: $primary;
+				color: $white;
+
+				.dropdown {
+					height: auto;
+					top: 2.65rem;
+				}
+			}
+		}
+	}
+
+	> div {
+		display: none;
+	}
+
+	.cascadeMenu {
+		display: none;
+	}
+
+	&.active {
+		background-color: $white;
+		box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+
+		.logo {
+			&:link, &:visited {
+				figure {
+					width: 80px;
+				}
+
+				span {
+					font-size: 1.25rem;
+					width: 15rem;
+					color: $darkest-grey;
+					display: inline-flex;
+				}
+			}
+		}
+
+		.normalMenu {
+			> li {
+				color: $darkest-grey;
+
+				&.active {
+					background-color: $primary;
+					color: $white;
+
+					a {
+						&:link, &:visited {
+							color: $white;
+						}
+					}
+				}
+
+				svg {
+					path {
+						fill: $grey;
+					}
+				}
+
+				a {
+					&:link, &:visited {
+						color: $darkest-grey;
+					}
+				}
+
+				&:hover {
+					background-color: $primary;
+					color: $white;
+
+					a {
+						&:link, &:visited {
+							color: $white;
+						}
+					}
+
+					svg {
+						path {
+							fill: rgba(255,255,255,0.75);
+						}
+					}
+				}
+
+				.dropdown {
+					li {
+						a {
+							&:link, &:visited {
+								color: $lightest-grey;
+							}
+						}
+
+						&:hover {
+							a {
+								&:link, &:visited {
+									color: $primary;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media all and (max-width: 1024px) {
+	.navbar {
+		padding: 0 1rem;
+
+		.normalMenu {
+			gap: 1rem;
+		}
+	}
+}
+
+
+@media all and (max-width: 800px) {
+	.navbar {
+		padding: {top: 5px; bottom: 5px;};
+
+		.normalMenu {
+			display: none;
+		}
+
+		> div {
+			display: flex;
+
+			svg {
+				width: 2rem;
+				height: 2rem;
+
+				path {
+					fill: $white;
+				}
+			}
+		}
+
+		.cascadeMenu {
+			display: block;
+			position: fixed;
+			top: 70px;
+			width: 100%;
+			left: 0;
+			background-color: rgba(0,0,0,0.95);
+			list-style-type: none;
+			color: $lightest-grey;
+			padding: 0 2rem 1rem;
+
+			> li {
+				border-bottom: 1px solid $dark-grey;
+
+				a {
+					&:link, &:visited {
+						display: block;
+						padding: 1.25rem 0.5rem;
+						color: #EEE;
+						text-transform: capitalize;
+					}
+
+					&:hover, &:active, &:focus {
+						color: $primary;
+					}
+				}
+
+				&.active {
+					a {
+						&:link, &:visited {
+							color: $primary;
+						}
+					}
+				}
+
+				&:last-child {
+					border-bottom: 0;
+
+					a {
+						&:link, &:visited {
+							.primaryBtn {
+								background-color: $primary;
+								color: #222;
+								display: inline-block;
+								padding: 0.5rem 1.25rem;
+								border-radius: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
